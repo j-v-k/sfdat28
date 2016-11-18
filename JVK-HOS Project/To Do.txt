@@ -1,0 +1,39 @@
+To Do:
+
+
+Created scaled rowsX
+Put code into jupyter notebookX
+Look up "how to read a corrplot"
+	-also compare the decison tree feature selection, after decison tree is implemented
+Implement decsion Tree
+     -compare features with corrplot
+Implement GridSearch CV with select KbestX
+	-in both knn and decision treeX
+Implement randomforest with gridsearch x
+	- gridsearch on all features x
+	- if short on time do trees first- cuse this is slow af
+	-take x_important based on data x?
+	-remember scaling is not neccesary for decision trees! x
+
+Get actual codes from healthcodeslen
+Organize feature lists into groups
+Create best features list for each model
+Implement ensembling
+	- you can even use decision trees
+	- as how to weight with regression models
+Maybe stuff for later:
+	make scaling pipeline faster
+	look up pruning trees
+	look at the algorthms used in the ensemble notebook
+
+Questions:
+	Should I tune other parameters in random forest?(leaf size.. etc.)
+	Effect of random_state on score, how should this be accounted for Answered below
+	Do I need to do the feature reduction in the way done in the notebook, or could I use a cross validation?
+	Should I remove duplicated dummies like spinal cord stimulator2? -Maybe, maybe not, should probably be cool. 
+	What is the logic behind max features = 1? A: Basically just randomly looks at one feature
+	Why does the order of features matter? A:Basically beacuse of random hashing? I believe, same thing with randomstate
+	Increase the # of CV folds?
+	How is pca explained via my dataset - part A: By potenitally reducing noise -Maybe try
+	
+

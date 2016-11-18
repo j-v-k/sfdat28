@@ -1,0 +1,536 @@
+DATE: 10/04/16 @ 1352                                       Fresno Surgical Hospital SCH LIVE                                                     PAGE 1
+USER: GARBMI                                    Procedure Times by Surgeon/Date with Patient Demographics                           
+Date      Account Number     Age  Gender  ASA Class  BMI   Procedure Name                            Into Rm  Start  End   Procedure Time  Out of Room
+
+01/04/16  V185428            64   F                  34.0  LEFT LUMBAR MEDIAL BRANCH RADIOFREQUEN..                  1123                  1137
+
+          Coded Allergy:
+          NO KNOWN DRUG ALLERGIES                                                         
+          CODEINE                                                                         
+          ASPIRIN                                                                         
+
+          Uncoded Allergy:
+
+                      CPT Code                                        ICD-10 Code                                        Insurance
+                      64635                                           M47.816                                            BLUE SHIELD HMO               
+                      64636                                           G54.4                                                                            
+                                                                      M51.36                                                                           
+                                                                      M51.06                                                                           
+                                                                      M96.1                                                                            
+                                                                      M54.16                                                                           
+                                                                      M12.88                                                                           
+                                                                      I10                                                                              
+                                                                      Z98.89                                                                           
+
+          Surgical History
+
+          Anesthesia Pertinent History
+
+          Neurologic / Musculoskeletal History
+
+          Respiratory History
+
+          Cardiovascular History
+
+          Gastrointestinal History
+
+          Genitourinary History
+
+          Endocrine History
+
+          Hematologic History
+
+          Immunologic History
+
+          Dental / Eyes / Ears / Skin History
+          Dentures or Partial - PARTIAL UPPER                                                                             
+
+          Mental Health / Substance Use History
+
+
+
+
+
+
+
+
+
+
+
+Report Name: SCÈ PAT..zcus.mg.vk                     Surgeon's Name: VON KAENEL,WILLIAM E MD                      Report Run From: 01/01/16 To: 10/04/16
+DATE: 10/04/16 @ 1352                                       Fresno Surgical Hospital SCH LIVE                                                     PAGE 2
+USER: GARBMI                                    Procedure Times by Surgeon/Date with Patient Demographics                           
+
+Date      Account Number     Age  Gender  ASA Class  BMI   Procedure Name                            Into Rm  Start  End   Procedure Time  Out of Room
+
+01/04/16  V185929            56   F                  21.3  LUMBAR MEDIAL BRANCH RADIOFREQUENCY..                     1052                  1110
+
+          Coded Allergy:
+          NKA/no ADR reported                                                             
+
+          Uncoded Allergy:
+
+                      CPT Code                                        ICD-10 Code                                        Insurance
+                      64636                                           M47.816                                            BLUE SHIELD HMO               
+                      64633                                           M54.16                                                                           
+                      64635                                           M51.36                                                                           
+                                                                      M12.88                                                                           
+                                                                      E78.5                                                                            
+                                                                      I10                                                                              
+                                                                      J44.9                                                                            
+                                                                      Z72.0                                                                            
+
+          Surgical History
+          Hysterectomy -                                                                                            
+
+          Anesthesia Pertinent History
+
+          Neurologic / Musculoskeletal History
+
+          Respiratory History
+
+          Cardiovascular History
+
+          Gastrointestinal History
+
+          Genitourinary History
+
+          Endocrine History
+
+          Hematologic History
+
+          Immunologic History
+
+          Dental / Eyes / Ears / Skin History
+
+          Mental Health / Substance Use History
+
+
+
+
+
+
+
+
+
+
+
+
+
+Report Name: SCÈ PAT..zcus.mg.vk                     Surgeon's Name: VON KAENEL,WILLIAM E MD                      Report Run From: 01/01/16 To: 10/04/16
+DATE: 10/04/16 @ 1352                                       Fresno Surgical Hospital SCH LIVE                                                     PAGE 3
+USER: GARBMI                                    Procedure Times by Surgeon/Date with Patient Demographics                           
+
+Date      Account Number     Age  Gender  ASA Class  BMI   Procedure Name                            Into Rm  Start  End   Procedure Time  Out of Room
+
+01/04/16  V185930            53   F                  27.9  SACRO ILIAC JOINT INJECTION RIGHT                         1257                  1314
+
+          Coded Allergy:
+          CAFFEINE                                                                        
+          HYDROCODONE                                                                     
+          ASPIRIN                                                                         
+          ADHESIVE                                                                        
+          TRAMADOL                                                                        
+          CHOCOLATE FLAVOR                                                                
+          LATEX                                                                           
+
+          Uncoded Allergy:
+
+                      CPT Code                                        ICD-10 Code                                        Insurance
+                      27096                                           M12.88                                             DELTA HEALTH/FUSD             
+                                                                      M47.816                                            FUSD                          
+                                                                      M96.1                                                                            
+                                                                      M54.5                                                                            
+                                                                      Z98.1                                                                            
+                                                                      Z88.5                                                                            
+
+          Surgical History
+          Hysterectomy -                                                                                            
+
+          Anesthesia Pertinent History
+
+          Neurologic / Musculoskeletal History
+
+          Respiratory History
+
+          Cardiovascular History
+
+          Gastrointestinal History
+
+          Genitourinary History
+
+          Endocrine History
+
+          Hematologic History
+
+          Immunologic History
+
+          Dental / Eyes / Ears / Skin History
+
+          Mental Health / Substance Use History
+
+
+
+
+
+
+
+
+
+Report Name: SCÈ PAT..zcus.mg.vk                     Surgeon's Name: VON KAENEL,WILLIAM E MD                      Report Run From: 01/01/16 To: 10/04/16
+DATE: 10/04/16 @ 1352                                       Fresno Surgical Hospital SCH LIVE                                                     PAGE 4
+USER: GARBMI                                    Procedure Times by Surgeon/Date with Patient Demographics                           
+
+Date      Account Number     Age  Gender  ASA Class  BMI   Procedure Name                            Into Rm  Start  End   Procedure Time  Out of Room
+
+01/04/16  V185931            33   M                  40.6  LUMBAR EPIDURAL STEROID INJECTION..                       1037                  1051
+
+          Coded Allergy:
+          NKA/no ADR reported                                                             
+
+          Uncoded Allergy:
+
+                      CPT Code                                        ICD-10 Code                                        Insurance
+                      64483                                           M51.36                                             BLUE CROSS HMO                
+                      64484                                           G54.4                                                                            
+                                                                      M54.16                                                                           
+                                                                      J45.909                                                                          
+                                                                      Z72.0                                                                            
+
+          Surgical History
+
+          Anesthesia Pertinent History
+
+          Neurologic / Musculoskeletal History
+
+          Respiratory History
+
+          Cardiovascular History
+
+          Gastrointestinal History
+
+          Genitourinary History
+
+          Endocrine History
+
+          Hematologic History
+
+          Immunologic History
+
+          Dental / Eyes / Ears / Skin History
+
+          Mental Health / Substance Use History
+
+
+
+Report Name: SCÈ PAT..zcus.mg.vk                     Surgeon's Name: VON KAENEL,WILLIAM E MD                      Report Run From: 01/01/16 To: 10/04/16
+DATE: 10/04/16 @ 1352                                       Fresno Surgical Hospital SCH LIVE                                                   PAGE 971
+USER: GARBMI                                    Procedure Times by Surgeon/Date with Patient Demographics                           
+
+Date      Account Number     Age  Gender  ASA Class  BMI   Procedure Name                            Into Rm  Start  End   Procedure Time  Out of Room
+
+09/15/16  V201163            92   F                  34.8  LUMBAR MEDIAL BRANCH RADIOFREQUENCY..     0958     1017   1048        31        1051
+
+          Coded Allergy:
+          MEPERIDINE HCL                                                                  
+          IODINATED CONTRAST MEDIA - IV DYE                                               
+          PENICILLINS                                                                     
+          MORPHINE                                                                        
+          Tuna                                                                            
+
+          Uncoded Allergy:
+
+                      CPT Code                                        ICD-10 Code                                        Insurance
+                      64635                                           M47.816                                            MEDICARE                      
+                      64636                                           M43.16                                             AARP/UNITED HEALTHCARE CLAIMS 
+                                                                      Z88.0                                                                            
+
+          Surgical History
+          History of Musculoskeletal Surgeries -                                                                                           
+          History of Gastrointestinal Surgeries - CHOLE, APPE                                                                               
+          History of Reproductive Surgeries -                                                                                           
+          History of Endocrine Surgeries - THYROIDECTOMY, PARATHYROID                                                                
+          History of HEENT Surgeries - BILATERAL CATARACT SX                                                                     
+          Joint Replacement - BILATERAL KNEES                                                                           
+          Implanted Hardware - BILATERAL KNEES                                                                           
+          Hysterectomy -  1970                                                                                      
+          Other Surgeries -                                                                                           
+
+          Anesthesia Pertinent History
+
+          Neurologic / Musculoskeletal History
+          Weakness - BILATERAL KNEES                                                                           
+          Osteoarthritis -                                                                                           
+          Chronic Pain - BACK AND LEGS                                                                             
+
+          Respiratory History
+          Patient Feels SOB When Doing Normal Daily Activities - PT HAS VERY DRY COUGH, PRODUCTIVE PLEGM DAILY,NO O2 USE R/T HIATAL HERNIA       
+
+          Cardiovascular History
+          Has Cardiologist - DR.BORNO                                                                                  
+          Heart Attack / Myocardial Infarction - PER PT TEST SHOWED MI IN PAST,BORNO AWARE                                                 
+
+          Gastrointestinal History
+          Reflux - CONTROLS WITH MEDICATION                                                                  
+
+          Genitourinary History
+          Urinary Incontinence -                                                                                           
+
+          Endocrine History
+          Hypothyroidism - CONTROLS WITH MEDICATION                                                                  
+
+          Hematologic History
+          History of Blood Transfusion -                                                                                           
+
+          Immunologic History
+          Other Immunological Disorders - HX OF PNUEMONIA 2008
+
+
+
+		  
+Report Name: SCÈ PAT..zcus.mg.vk                     Surgeon's Name: VON KAENEL,WILLIAM E MD                      Report Run From: 01/01/16 To: 10/04/16
+DATE: 10/04/16 @ 1352                                       Fresno Surgical Hospital SCH LIVE                                                     PAGE 8
+USER: GARBMI                                    Procedure Times by Surgeon/Date with Patient Demographics                           
+
+Date      Account Number     Age  Gender  ASA Class  BMI   Procedure Name                            Into Rm  Start  End   Procedure Time  Out of Room
+
+01/04/16  V186242            73   M                  22.4  LUMBAR SPINAL CORD STIMULATOR TRIAL..                     1402                      
+
+          Coded Allergy:
+          NO KNOWN DRUG ALLERGIES                                                         
+          ASPARAGUS                                                                       
+
+          Uncoded Allergy:
+          pollen from olive trees                                                         
+
+                      CPT Code                                        ICD-10 Code                                        Insurance
+                      63650                                           M96.1                                              BLUE CROSS HMO                
+                                                                      G54.4                                                                            
+                                                                      M47.816                                                                          
+                                                                      M43.16                                                                           
+                                                                      Z53.09                                                                           
+                                                                      Z79.82                                                                           
+
+          Surgical History
+
+          Anesthesia Pertinent History
+
+          Neurologic / Musculoskeletal History
+
+          Respiratory History
+
+          Cardiovascular History
+
+          Gastrointestinal History
+
+          Genitourinary History
+
+          Endocrine History
+
+          Hematologic History
+
+          Immunologic History
+
+          Dental / Eyes / Ears / Skin History
+
+          Mental Health / Substance Use History
+
+
+
+
+
+
+
+Report Name: SCÈ PAT..zcus.mg.vk                     Surgeon's Name: VON KAENEL,WILLIAM E MD                      Report Run From: 01/01/16 To: 10/04/16
+DATE: 10/04/16 @ 1352                                       Fresno Surgical Hospital SCH LIVE                                                    PAGE 54
+USER: GARBMI                                    Procedure Times by Surgeon/Date with Patient Demographics                           
+
+Date      Account Number     Age  Gender  ASA Class  BMI   Procedure Name                            Into Rm  Start  End   Procedure Time  Out of Room
+
+01/14/16  V186889            83   M                  27.6  LUMBAR EPIDURAL STEROID INJECTION..                       0922                  0937
+
+          Coded Allergy:
+          NKA/no ADR reported                                                             
+
+          Uncoded Allergy:
+
+                      CPT Code                                        ICD-10 Code                                        Insurance
+                      64483                                           M48.06                                             MEDICARE                      
+                                                                      M47.16                                             BLUE CROSS OF CALIFORNIA      
+                                                                      M43.16                                                                           
+                                                                      M51.36                                                                           
+                                                                      Z95.0                                                                            
+                                                                      E78.5                                                                            
+                                                                      Z79.01                                                                           
+                                                                      Z95.828                                                                          
+                                                                      Z95.1                                                                            
+                                                                      M12.88                                                                           
+
+          Surgical History
+          History of Cardiac Surgeries - BYPASS 2013, STENTS, PACEMAKER 2014                                                       
+          Arthroscopy - BILAT KNEE SURGERIES                                                                      
+          Implanted Hardware - PACEMAKER                                                                                 
+
+          Anesthesia Pertinent History
+
+          Neurologic / Musculoskeletal History
+          Chronic Pain - BACK PAIN                                                                                 
+          Other Musculoskeletal Problems - MUSCULAR WEAKNESS IN LEGS                                                                 
+
+          Respiratory History
+
+          Cardiovascular History
+          Has Cardiologist - DR BORNO                                                                                  
+          Pacemaker - 4/2014                                                                                    
+          Coronary Stent - 3 STENTS 2013                                                                             
+          Heart Attack / Myocardial Infarction - 9/2013                                                                                    
+
+          Gastrointestinal History
+          Ulcers - 50 YRS AGO                                                                                
+
+          Genitourinary History
+          Urnary Retention -                                                                                           
+          Enlarged Prostate -                                                                                           
+
+          Endocrine History
+
+          Hematologic History
+          Taking Blood Thinners - HAS NOT STOPPED                                                                           
+
+          Immunologic History
+
+          Dental / Eyes / Ears / Skin History
+          Visual Difficulty -                                                                                           
+          Dentures or Partial - TOP PARTIAL                                                                               
+Report Name: SCÈ PAT..zcus.mg.vk                     Surgeon's Name: VON KAENEL,WILLIAM E MD                      Report Run From: 01/01/16 To: 10/04/16
+DATE: 10/04/16 @ 1352                                       Fresno Surgical Hospital SCH LIVE                                                    PAGE 55
+USER: GARBMI                                    Procedure Times by Surgeon/Date with Patient Demographics                           
+
+          Mental Health / Substance Use History
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Report Name: SCÈ PAT..zcus.mg.vk                     Surgeon's Name: VON KAENEL,WILLIAM E MD                      Report Run From: 01/01/16 To: 10/04/16
+DATE: 10/04/16 @ 1352                                       Fresno Surgical Hospital SCH LIVE                                                    PAGE 56
+USER: GARBMI                                    Procedure Times by Surgeon/Date with Patient Demographics                           
+
+Date      Account Number     Age  Gender  ASA Class  BMI   Procedure Name                            Into Rm  Start  End   Procedure Time  Out of Room
+
+01/18/16  V186236            56   M                  38.9  LUMBAR  MEDIAL BRANCH RADIOFREQUENCY..                    1646                  1701
+
+          Coded Allergy:
+          SULFA (SULFONAMIDE ANTIBIOTICS)                                                 
+
+          Uncoded Allergy:
+
+                      CPT Code                                        ICD-10 Code                                        Insurance
+                      64635                                           M47.816                                            BLUE CROSS OF CALIFORNIA      
+                      64636                                           M54.16                                                                           
+                                                                      M51.36                                                                           
+                                                                      M51.26                                                                           
+                                                                      M12.88                                                                           
+                                                                      I10                                                                              
+                                                                      Z88.2                                                                            
+
+          Surgical History
+          History of Respiratory Surgeries - TONSILLECTOMY AGE 7                                                                       
+          History of HEENT Surgeries - TONSILLECTOMY AS A CHILD                                                                  
+          Joint Replacement - LT HIP                                                                                    
+          Implanted Hardware -                                                                                           
+
+          Anesthesia Pertinent History
+          Uses CPAP - WILL BRING DOS                                                                            
+
+          Neurologic / Musculoskeletal History
+          Osteoarthritis -                                                                                           
+          Chronic Pain - BILATERAL HIPS DUE TO ARTHRITIS                                                           
+
+          Respiratory History
+
+          Cardiovascular History
+          Exercise Intolerance - DAILY CHORES AROUND THE HOUSE; YARD WORK 3 HRSLIMITED MOBILITY D/T HIP PAIN               
+          High Blood Pressure - CONTROLLED WITH MEDS                                                                      
+
+          Gastrointestinal History
+
+          Genitourinary History
+
+          Endocrine History
+
+          Hematologic History
+          History of Blood Transfusion - DUE TO MVA 1979                                                                           
+
+          Immunologic History
+          Cancer - MELANOMA LT SHOULDER EXCISED NO RECURRENCE '11                                            
+
+          Dental / Eyes / Ears / Skin History
+
+          Mental Health / Substance Use History
+          Alcohol Consumption -  2-3 BEERS A DAY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
