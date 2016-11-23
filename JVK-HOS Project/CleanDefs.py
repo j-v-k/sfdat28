@@ -29,7 +29,7 @@ def get_personal_info(indexNum, valuesDict, smallList):
     valuesDict['Age'] += [smallList[indexNum-1]]
     valuesDict['Gender'] += [smallList[indexNum]]
     valuesDict['BMI'] += [smallList[indexNum+1].replace("\n", "")]
-    valuesDict['Date'] += [smallList[indexNum-3]]
+    valuesDict['Date'] += [smallList[indexNum-3].replace("'","")]
     return valuesDict
      
 def get_procedure_times(valuesDict,smallList, countIndex):
@@ -62,6 +62,22 @@ def get_procedure_times(valuesDict,smallList, countIndex):
            valuesDict['ExitTime'] += [np.nan]
                 #print smallList[indexNum-2]+ "ssss"
        return valuesDict
+       
+       
+       
+def getHealthCodes(dfNotNull):
+    healthcodesBIGlist = []
+    for i in dfNotNull['HealthCodes']:
+        healthcodesBIGlist += i
+    smallList =list(set(healthcodesBIGlist))
+    iterList = []
+    for i in smallList:
+        iterList += [i[0:i.find('.')]]
+    smallList = list(set(iterList))
+    return smallList
+        
+    
+    
 
 
 
@@ -256,11 +272,30 @@ def genderSwitch(x):
         return 1
     else:
         return "LOOOK HERE!!!"
-def avgProcTime(dfNotNull,x):
-    return dfNotNull[dfNotNull['Procedure3'] == x].mean()
+
+def healthCodeMatch(x, i):
+    print x
+    print i
+    if any(i in j for j in x):
+        print 1
+        return 1
+    else:
+        return 0
     
-
-
+def create1r(date2):
+    print date2.year
+    print date2.day
+    print date2.weekday()
+    print  datetime(date2.year, date2.month, date2.day, 14,30,0)
+    if date2.weekday() == 3 and date2 < datetime(date2.year, date2.month, date2.day, 14,30,0):
+        return 0
+    else:
+        return 1
+        
+def createProcAvgs(x, dfNotNull):
+    
+    return dfNotNull[dfNotNull['Procedure3'] == x]['TotalTimeMin'].mean()
+    
 
 def org_values_dict():
     valuesDict = {}
@@ -274,7 +309,6 @@ def org_values_dict():
     valuesDict['ProStartTime'] = []
     valuesDict['ProEndTime'] = []
     #valuesDict['Procedure'] = []
-    
     valuesDict['InsuranceName'] = []
     valuesDict['HealthCodes'] = []
     valuesDict['HealthCodesLen'] = []

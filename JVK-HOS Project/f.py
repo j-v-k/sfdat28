@@ -8,6 +8,8 @@ import numpy as np
 
 """****Split Report into lists by user****"""
 fileName = "..\JVK-HOS Project\VK Report.txt"
+csvFileName ="C:\Users\James\Documents\GitHub\sfdat28\JVK-HOS Project\Long.csv"
+#csvFileName ="C:\Users\James\Documents\GitHub\sfdat28\JVK-HOS Project\OutOS.csv"
 def create_large_List(fileName):
     with open(fileName) as f:
        content = f.readlines()
@@ -101,6 +103,10 @@ dfNotNull['TotalTimeMin']= dfNotNull['TotalTime'].astype('timedelta64[m]')
 dfNotNull['BMI'] = dfNotNull['BMI'].apply(lambda x: float(x.replace("\n","")))
 dfNotNull['Gender'] = dfNotNull['Gender'].apply(lambda x: CleanDefs.genderSwitch(x))
 dfNotNull['Day'] = pandas.to_datetime(dfNotNull['Date']).dt.dayofweek
+dfNotNull['1r'] = pandas.to_datetime(dfNotNull['ProStartTime'].dt.time.astype('str') + " " + dfNotNull['Date'])
+dfNotNull['1r'] = dfNotNull['1r'].apply(lambda x: CleanDefs.create1r(x))
+
+dfNotNull['AverageProcTime']=dfNotNull['Procedure3'].apply(lambda x: CleanDefs.createProcAvgs(x,dfNotNull) )
 dfNotNull['TotalLen'] = 0
 
 
@@ -110,6 +116,12 @@ for i in filter(lambda x: "History" in x, valuesDict.keys()):
 for i in filter(lambda x: "History" in x, valuesDict.keys()):
     dfNotNull['TotalLen'] += dfNotNull[i+"Len"]
     
+HealthCodesList = CleanDefs.getHealthCodes(dfNotNull)
+for i in HealthCodesList:
+    dfNotNull[i] = dfNotNull['HealthCodes'].apply(lambda x: CleanDefs.healthCodeMatch(x,i))
+
+
+   
 """"Dummy Creation"""    
 dumms = pandas.get_dummies(dfNotNull.Procedure3)
 dfNotNull = pandas.concat([dfNotNull,dumms],axis = 1)
@@ -122,6 +134,8 @@ dfNotNull = pandas.concat([dfNotNull,dumms],axis = 1)
 
 dumms=pandas.get_dummies(dfNotNull.InsuranceName)
 dfNotNull = pandas.concat([dfNotNull,dumms],axis = 1)
+
+
 
 
 """*****Scaling******"""
@@ -146,266 +160,8 @@ print dfNotNull['Procedure3'].value_counts()
 
 dfNotNull['MinClass'] =  dfNotNull['TotalTimeMin'].apply(lambda x: CleanDefs.minClass(x))
 
-dfNotNull.to_csv("C:\Users\James\Documents\GitHub\sfdat28\JVK-HOS Project\Long.csv", ",")
+dfNotNull.to_csv(csvFileName, ",")
 
-
-
-
-
-
-
-
-
-
-
-print"""
-Run KNN Classification ****
-"""
-#shortDF = dfNotNull[(dfNotNull['MinClass'] == "29 Max Class") | (dfNotNull['MinClass'] == "39 Max Class") | (dfNotNull['MinClass'] == "49 Max Class") | (dfNotNull['MinClass'] == "19 Max Class") |(dfNotNull['MinClass'] == "59 Max Class" )|(dfNotNull['MinClass'] == "69 Max Class")]
-#feature_cols = [3,'Lumbar Radiofrequency','Nerve Block','Cervical/Thoracic Radiofrequency', 'Facet Joint Injection','Cervical/Thoracic ESI', 'Cervical/Thoracic Medial Branch Block','Spinal Cord Stimulator']
-feature_cols = [3, 'Gender', 'Lumbar Radiofrequency', 'Cervical/Thoracic Radiofrequency', 'Facet Joint Injection', 'Cervical/Thoracic ESI', 'Cervical/Thoracic Medial Branch Block', 'Spinal Cord Stimulator', 'Radiofrequency', 'ESI', 'Medial Branch Block', 'Spinal Cord Stimulator 2']
-X = dfNotNull[feature_cols]
-y = dfNotNull['MinClass']
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.cross_validation import cross_val_score
-for i in range (1,25):
-    knn = KNeighborsClassifier(n_neighbors=i)
-    scores = cross_val_score(knn, X, y, cv=3, scoring='accuracy')
-    print i
-    print scores.mean()
-
-
-
-print"""
-Run Logistic Reggression Classification Cross Val ****
-"""    
-    
-from sklearn.linear_model import LogisticRegression
-from sklearn.cross_validation import cross_val_score
-logreg = LogisticRegression()
-print cross_val_score(logreg, X, y, cv=5, scoring='accuracy').mean()
-
-
-print"""
-Run Logistic Reggression Classification Predictiona ****
-""" 
-
-from sklearn.cross_validation import train_test_split
-  
-features_train, features_test, response_train, response_test \
-= train_test_split(X, y, random_state=4)
-# instantiate and fit
-logreg = LogisticRegression()
-logreg.fit(features_train, response_train)
-
-predictionDF = pandas.DataFrame()
-predictionDF['Predictions'] = logreg.predict(features_test)
-predictionDF['Actual'] = response_test.values
-predictionDF =pandas.concat([predictionDF,features_train],axis = 1)
-
-print predictionDF.head(15)
-
-
-
-
-print"""
-Run Decison-Tree Classification ****
-"""    
-
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.cross_validation import cross_val_score
-for i in range (0,5):
-    clf = DecisionTreeClassifier(random_state=i)
-    scores = cross_val_score(clf, X, y, cv=10)
-    print scores.mean()
-    
-
-    
-    
-    
-print """
-Run Linear Regression Train-Test Split ****
-"""
-X = dfNotNull[feature_cols]
-y = dfNotNull['TotalTimeMin']
-
-
-from sklearn.linear_model import LinearRegression
-from sklearn.cross_validation import cross_val_score
-from sklearn.cross_validation import train_test_split
-
-features_train, features_test, response_train, response_test \
-= train_test_split(X, y, random_state=4)
-# instantiate and fit
-
-
-linreg = LinearRegression()
-linreg.fit(features_train, response_train)
-
-predictionDF = pandas.DataFrame()
-predictionDF['Predictions'] = linreg.predict(features_test)
-predictionDF['Actual'] = response_test.values
-f = lambda x:int(round(x/15.)*15)
-print predictionDF.head(15)
-print zip(feature_cols,linreg.coef_) 
-
-
-    
-print """
-Run Linear Regression Cross Val ****
-"""
-
-from sklearn.neighbors import KNeighborsRegressor
-def cross_val_r2(X, y,n):
-    linreg = LinearRegression()
-    #neigh = KNeighborsRegressor(n_neighbors=n)
-    scores = cross_val_score(linreg, X, y, cv=3, scoring='r2')
-    mean2escores = cross_val_score(linreg, X, y, cv=3, scoring='mean_squared_error')
-    meanAbsScores= cross_val_score(linreg, X, y, cv=3, scoring='mean_absolute_error')
-    return (scores,mean2escores,meanAbsScores) # return average R2
-cvScores= cross_val_r2(X, y,23)
-r2Scores = cvScores[0]
-mean2escores = cvScores[1]
-meanAbsScores= cvScores[2]
-print "root mean squared error"
-print np.sqrt(abs(mean2escores)).mean()
-print "r2 Scores"
-print r2Scores
-print r2Scores.mean()
-print "mean Abs Scores"
-print meanAbsScores
-print meanAbsScores.mean()
-
-
-print """
-Run Linear Regression Cross Val All Feature Combos 
-"""
-
-import itertools
-r2 = (.5, 4)
-feature_cols = [ 3,'Gender','Lumbar Radiofrequency','Nerve Block','Cervical/Thoracic Radiofrequency', 'Facet Joint Injection','Cervical/Thoracic ESI', 'Cervical/Thoracic Medial Branch Block','Spinal Cord Stimulator']
-
-def iter_r2(r2,dfNotNull,feature_cols):
-    for L in range(2, len(feature_cols)+1):
-      print L
-      for subset in itertools.combinations(feature_cols, L):
-        Subset = list(subset)
-        X = dfNotNull[Subset]
-        
-        rTest = cross_val_r2(X, y, i)[0].mean()
-        if rTest.mean() > r2[0]:
-            r2 = (rTest, Subset, i)
-    return r2
-#print iter_r2(r2,dfNotNull,feature_cols)  
-print """
-Run Linear Regression on Scaled Features with Pipeline ****
-"""
-"""
-from sklearn.grid_search import GridSearchCV
-from sklearn.pipeline import Pipeline, FeatureUnion, make_pipeline, make_union
-from sklearn.preprocessing import StandardScaler
-
-feature_cols = ['BMI', 'Age','SurgicalHistoryLen','Gender']
-X = dfNotNull[feature_cols]
-
-pipe = make_pipeline(StandardScaler(), LinearRegression())
-
-#grid = GridSearchCV(pipe, cv=5, scoring='r2')
-#do a feature union with the non-scalable data around here!!!!!-jvk
-
-
-scores = cross_val_score(pipe, X, y, cv=3, scoring='r2')
-print scores.mean()
-"""
-
-print """
-Run KNN Regression Cross Val All Feature Combos Piped Scalar ****
-"""
-from sklearn.pipeline import Pipeline, FeatureUnion, make_pipeline, make_union
-
-from sklearn.neighbors import KNeighborsRegressor
-"Scale values in the DF"   
-from sklearn.base import TransformerMixin
-#from sklearn import preprocessing
-
-class FeatureScalarTransformer(TransformerMixin):
-        def transform(self,X,  **transform_params):
-            if 'BMI' in X:
-                #X['BMI'] = preprocessing.scale(X['BMI'])
-                scal = StandardScaler().fit(X['BMI'])
-                X['BMI'] = scal.transform(X['BMI'])
-            if 'Age' in X:
-                #X['Age']= preprocessing.scale(X['Age'].astype('float'))
-                scal = StandardScaler().fit(X['Age'])
-                X['Age']=  scal.transform(X['Age'])
-            if 'SurgicalHistoryLen' in X:
-                #X['SurgicalHistoryLen'] = preprocessing.scale(X['SurgicalHistoryLen'].astype('float')
-                scal = StandardScaler().fit(X['SurgicalHistoryLen'])                
-                X['SurgicalHistoryLen'] = scal.transform(X['SurgicalHistoryLen'])
-            if 'HealthCodesLen' in X:
-                #X['HealthCodesLen'] = preprocessing.scale(X['HealthCodesLen'].astype('float'))
-                scal = StandardScaler().fit(X['HealthCodesLen'])
-                X['HealthCodesLen'] = scal.transform(X['HealthCodesLen'])
-            
-            
-            return X
-           
-
-        def fit(self, X, y=None, **fit_params):
-            return self
-import time
-
-"Use KNN to find scores"
-def cross_val_r2_knn(X, y, neighs, scoring):
-    
-
-    neigh = KNeighborsRegressor(n_neighbors=neighs)
-    start = time.clock() 
-    h = FeatureScalarTransformer()
-    
-    X = h.fit_transform(X)
-    pipe = Pipeline([('Tranform_Features', FeatureScalarTransformer()), ('KNNeighbors', neigh)])
-    if 'mean_squared_error' in scoring:
-        scores = np.sqrt(abs(cross_val_score(pipe, X, y, cv=3, scoring=scoring))).mean()
-    else:
-        scores = cross_val_score(pipe, X, y, cv=3, scoring=scoring).mean()
-    elapsed = time.clock()
-    elapsed = elapsed - start
-    print "Time spent in (function name) is: ", elapsed
-    
-    return scores
-    
-testScore = (.5, 4)
-feature_cols = [ 'BMI', 'Age','SurgicalHistoryLen',3,'Gender','Lumbar Radiofrequency','Nerve Block','Cervical/Thoracic Radiofrequency', 'Facet Joint Injection','Cervical/Thoracic ESI', 'Cervical/Thoracic Medial Branch Block','Spinal Cord Stimulator']
-feature_cols = [ 3,'Gender','Lumbar Radiofrequency','Nerve Block','Cervical/Thoracic Radiofrequency', 'Facet Joint Injection','Cervical/Thoracic ESI', 'Cervical/Thoracic Medial Branch Block','Spinal Cord Stimulator','Joint Injection, other']
-
-feature_cols = [ 3,'Gender','Lumbar Radiofrequency','Nerve Block','Cervical/Thoracic Radiofrequency', 'Facet Joint Injection','Cervical/Thoracic ESI', 'Cervical/Thoracic Medial Branch Block','Spinal Cord Stimulator','SurgicalHistoryLen']
-feature_cols = feature_cols + ['Radiofrequency', 'ESI', 'Medial Branch Block', 'Injection', 'Spinal Cord Stimulator 2', 'Nerve Block 2', 'BMI', 'Age']
-
-def iter_r2_knn(testScore,dfNotNull,feature_cols):
-    for L in range(14,len(feature_cols)+1):
-      print L
-      for subset in itertools.combinations(feature_cols, L):
-        Subset = list(subset)
-        X = dfNotNull[Subset]
-        for i in range(12,23):
-            rTest = cross_val_r2_knn(X, y, i, 'r2')
-            if rTest > testScore[0]:
-                testScore = (rTest, Subset, i)
-    return testScore
-       
-#r2score= iter_r2_knn(testScore,dfNotNull,feature_cols) 
-#print r2score
-
-
-
-
-
-"""*****Grid Search KNN Regression Select K Best*****"""
-
-
-#from sklearn.grid_search import GridSearchCV
-#clf = GridSearchCV(neighbors.KNeighborsRegressor(), parameters)
 
 
 
@@ -425,5 +181,5 @@ plt.scatter(dfNotNull['SurgicalHistoryLen'], dfNotNull['TotalTimeMin'])
 dfNotNull[['Age','TotalTimeMin']].corr()
 plt.show()
 dfNotNull[dfNotNull['SurgicalHistoryLen'] <5]['TotalTimeMin'].mean()
-import seaborn as sns
+
 

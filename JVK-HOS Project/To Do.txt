@@ -14,7 +14,7 @@ Implement randomforest with gridsearch x
 	- if short on time do trees first- cuse this is slow af
 	-take x_important based on data x?
 	-remember scaling is not neccesary for decision trees! x
-
+	-trim the tree iteratively? maybe
 Get actual codes from healthcodeslen
 Organize feature lists into groups
 Create best features list for each model
@@ -25,6 +25,7 @@ Maybe stuff for later:
 	make scaling pipeline faster
 	look up pruning trees
 	look at the algorthms used in the ensemble notebook
+	cluster the procedures
 
 Questions:
 	Should I tune other parameters in random forest?(leaf size.. etc.)
@@ -33,7 +34,10 @@ Questions:
 	Should I remove duplicated dummies like spinal cord stimulator2? -Maybe, maybe not, should probably be cool. 
 	What is the logic behind max features = 1? A: Basically just randomly looks at one feature
 	Why does the order of features matter? A:Basically beacuse of random hashing? I believe, same thing with randomstate
-	Increase the # of CV folds?
+	Increase the # of CV folds? A:maybe till aroud 5
 	How is pca explained via my dataset - part A: By potenitally reducing noise -Maybe try
-	
+	How to choose the correct threshold for feature selection
+	How to deal with all the healthcodes
+	How to implement grid search succesfully with the transformers
+	Is my method of cross validating the null results accurate?
 
