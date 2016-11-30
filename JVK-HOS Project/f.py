@@ -75,8 +75,9 @@ orgValuesDict = CleanDefs.org_values_dict()
 valuesDict = create_values_dict(largeList, orgValuesDict)
 
 """*****Print length of each row in valuesDict*****"""  
+
 for i in valuesDict:
-     print i + " : " + str(len(valuesDict[i]))
+   print i + " : " + str(len(valuesDict[i]))
 
 
 
@@ -103,6 +104,7 @@ dfNotNull['TotalTimeMin']= dfNotNull['TotalTime'].astype('timedelta64[m]')
 dfNotNull['BMI'] = dfNotNull['BMI'].apply(lambda x: float(x.replace("\n","")))
 dfNotNull['Gender'] = dfNotNull['Gender'].apply(lambda x: CleanDefs.genderSwitch(x))
 dfNotNull['Day'] = pandas.to_datetime(dfNotNull['Date']).dt.dayofweek
+dfNotNull['Month'] = pandas.to_datetime(dfNotNull['Date']).dt.month
 dfNotNull['1r'] = pandas.to_datetime(dfNotNull['ProStartTime'].dt.time.astype('str') + " " + dfNotNull['Date'])
 dfNotNull['1r'] = dfNotNull['1r'].apply(lambda x: CleanDefs.create1r(x))
 
@@ -111,15 +113,29 @@ dfNotNull['TotalLen'] = 0
 
 
 for i in filter(lambda x: "History" in x, valuesDict.keys()):
-    print i
+    
     dfNotNull[i+"Len"] = dfNotNull[i].apply(lambda x: len(x))
 for i in filter(lambda x: "History" in x, valuesDict.keys()):
     dfNotNull['TotalLen'] += dfNotNull[i+"Len"]
-    
+
+# Health Codes1   
 HealthCodesList = CleanDefs.getHealthCodes(dfNotNull)
 for i in HealthCodesList:
-    dfNotNull[i] = dfNotNull['HealthCodes'].apply(lambda x: CleanDefs.healthCodeMatch(x,i))
+    dfNotNull[i] = dfNotNull['HealthCodes'].apply(lambda x: CleanDefs.CodeMatch(x,i))
+    HealthCodesList = CleanDefs.getHealthCodes(dfNotNull)
 
+#Health Codes 2
+tt=[]
+for i in HealthCodesList:
+    tt += [i[0]]
+    dfNotNull[i[0]] = dfNotNull['HealthCodes'].apply(lambda x: CleanDefs.CodeMatch(x,i[0]))
+
+tt=[]
+CPTCodeList = CleanDefs.getCPTCodes(dfNotNull)
+for i in CPTCodeList:
+    print i
+    tt += [i]
+    dfNotNull[i] = dfNotNull['CPTCode'].apply(lambda x: CleanDefs.CodeMatch(x,i))
 
    
 """"Dummy Creation"""    

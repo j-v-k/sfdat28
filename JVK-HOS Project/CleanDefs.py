@@ -75,6 +75,17 @@ def getHealthCodes(dfNotNull):
         iterList += [i[0:i.find('.')]]
     smallList = list(set(iterList))
     return smallList
+    
+def getCPTCodes(dfNotNull):
+    CPTCodeBIGlist = []
+    for i in dfNotNull['CPTCode']:
+        CPTCodeBIGlist += i
+    smallList =list(set(CPTCodeBIGlist))
+    iterList = []
+    for i in smallList:
+        iterList += [i]
+    smallList = list(set(iterList))
+    return smallList
         
     
     
@@ -239,17 +250,25 @@ def getSurgeValues(smallList2,SurgicalHistIndex, valuesDict):
 def getCodesandSurgeries(valuesDict, smallList,InsurIndexNum):
         ICDCodeList = []
         InsuranceName = ""
+        CPTCode = []
         while 'Surgical' not in smallList[InsurIndexNum]:
             if hasNumbers(smallList[InsurIndexNum]) and hasLetters(smallList[InsurIndexNum]) and "ICD-10" not in str(smallList[InsurIndexNum]):
                 ICDCodeList += [smallList[InsurIndexNum]]
             elif hasLetters(smallList[InsurIndexNum]) and "ICD-10" not in str(smallList[InsurIndexNum]) and "Code" not in str(smallList[InsurIndexNum]) and "Insurance" not in str(smallList[InsurIndexNum]) :
                 InsuranceName += str(smallList[InsurIndexNum]) + " "
+            elif hasNumbers(smallList[InsurIndexNum]) and "." not in smallList[InsurIndexNum] and "-" not in smallList[InsurIndexNum] and "+" not in smallList[InsurIndexNum]:
+                print smallList[InsurIndexNum]
+                CPTCode += [str(smallList[InsurIndexNum])]
+                    
             InsurIndexNum += 1
         
-        
+        if CPTCode == []:
+            CPTCode = ['noCPT']
         valuesDict['HealthCodes'] += [ICDCodeList]
         valuesDict['HealthCodesLen'] += [len(ICDCodeList)]
         valuesDict['InsuranceName'] += [InsuranceSort(InsuranceName.rstrip(" "))]
+        valuesDict['CPTCode'] += [CPTCode]
+        valuesDict['CPTCodeLen'] += [len(CPTCode)]
         
         smallList2 = smallList[InsurIndexNum:300]
         SurgicalHistIndex = smallList2.index("Surgical")
@@ -273,20 +292,15 @@ def genderSwitch(x):
     else:
         return "LOOOK HERE!!!"
 
-def healthCodeMatch(x, i):
-    print x
-    print i
+def CodeMatch(x, i):
+    
     if any(i in j for j in x):
-        print 1
         return 1
     else:
         return 0
     
 def create1r(date2):
-    print date2.year
-    print date2.day
-    print date2.weekday()
-    print  datetime(date2.year, date2.month, date2.day, 14,30,0)
+    
     if date2.weekday() == 3 and date2 < datetime(date2.year, date2.month, date2.day, 14,30,0):
         return 0
     else:
@@ -294,7 +308,7 @@ def create1r(date2):
         
 def createProcAvgs(x, dfNotNull):
     
-    return dfNotNull[dfNotNull['Procedure3'] == x]['TotalTimeMin'].mean()
+    return dfNotNull[dfNotNull['Procedure4'] == x]['TotalTimeMin'].mean()
     
 
 def org_values_dict():
@@ -328,6 +342,8 @@ def org_values_dict():
     valuesDict['Procedure2']=[]
     valuesDict['Procedure3']=[]
     valuesDict['Procedure4']=[]
+    valuesDict['CPTCode'] = []
+    valuesDict['CPTCodeLen'] =[]
     return valuesDict
     
  

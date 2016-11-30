@@ -15,9 +15,19 @@ Implement randomforest with gridsearch x
 	-take x_important based on data x?
 	-remember scaling is not neccesary for decision trees! x
 	-trim the tree iteratively? maybe
-Get actual codes from healthcodeslen
-Organize feature lists into groups
-Create best features list for each model
+Get actual codes from healthcodeslenX
+Organize feature lists into groupsX
+Create best features list for each modelX
+Grid search linear regressionX
+get null values with kfolds methodX - do standard null too maybe
+add month feature
+add parsed healthcode feature
+put average values and linear values in ensmbler
+implement stochastic regressionX
+	-make sure to get regression specific parameters if they are different from sdgc classifierX
+
+
+
 Implement ensembling
 	- you can even use decision trees
 	- as how to weight with regression models
@@ -37,7 +47,13 @@ Questions:
 	Increase the # of CV folds? A:maybe till aroud 5
 	How is pca explained via my dataset - part A: By potenitally reducing noise -Maybe try
 	How to choose the correct threshold for feature selection
-	How to deal with all the healthcodes
-	How to implement grid search succesfully with the transformers
-	Is my method of cross validating the null results accurate?
+	How to deal with all the healthcodes A
+	How to implement grid search succesfully with the transformers Answered
+	Is my method of cross validating the null results accurate?A;Kfold
+	How to weight the regression ensemble's
+	How to get a legend with the scatter plot
+	What are the exact reasons for the super large RMSE values -Linear regression is very senistive 
+        to irreleavnt features, shouldn't be anything to worry about
+	Why are Kfolds different each time, but CV's the same
+        
 
