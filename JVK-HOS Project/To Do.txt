@@ -20,11 +20,13 @@ Organize feature lists into groupsX
 Create best features list for each modelX
 Grid search linear regressionX
 get null values with kfolds methodX - do standard null too maybe
-add month feature
-add parsed healthcode feature
+add month featureX
+add parsed healthcode featureX
 put average values and linear values in ensmbler
 implement stochastic regressionX
 	-make sure to get regression specific parameters if they are different from sdgc classifierX
+
+use reguralization and other feature reduction methods found in:https://www.youtube.com/watch?v=91si52nk3LA&list=PL5-da3qGB5IB-Xdpj_uXJpLGiRfv9UVXI
 
 
 
@@ -54,6 +56,11 @@ Questions:
 	How to get a legend with the scatter plot
 	What are the exact reasons for the super large RMSE values -Linear regression is very senistive 
         to irreleavnt features, shouldn't be anything to worry about
-	Why are Kfolds different each time, but CV's the same
+	
+	Why are Kfolds different each time, but CV's the same -Aske george on slack
+	Is my explanation for the lines(the steeper, less vairiable line make better features) correct?(Also can a line go > 45*?
+	Should I be worried about overfitting as I have Iteratively gone thorugh my features? Specifically with my project? Should I go with
+	the stepwise or iterative?
         
-
+11.0595009685
+17.1580231676
