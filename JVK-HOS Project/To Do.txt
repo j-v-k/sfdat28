@@ -27,7 +27,7 @@ implement stochastic regressionX
 	-make sure to get regression specific parameters if they are different from sdgc classifierX
 
 use reguralization and other feature reduction methods found in:https://www.youtube.com/watch?v=91si52nk3LA&list=PL5-da3qGB5IB-Xdpj_uXJpLGiRfv9UVXI
-
+Get the coeffecients of the best features
 
 
 Implement ensembling
